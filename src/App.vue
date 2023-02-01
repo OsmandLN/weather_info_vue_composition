@@ -1,29 +1,73 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
+  <header>
+    <div class="logos-wrapper">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    </div>
+    <span>天氣查詢</span>
+  </header>
+  <SearchPanel />
+  <div class="card-wrapper">
+    <WeatherCard />
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <TheFooter />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<style lang="scss" scoped>
+header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: coral, $alpha: 0.5);
+  z-index: 999;
+
+  span {
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .logos-wrapper {
+    display: flex;
+    justify-content: flex-end;
+
+
+    .logo {
+      height: 2em;
+      padding: 1em;
+
+      &:hover {
+        transform: rotate(360deg);
+        transition: 0.4s;
+      }
+    }
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.card-wrapper {
+  width: 100%;
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 5em;
+  margin: 25px 0;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+@media screen and (min-width: 1024px) {
+  header {
+    justify-content: flex-start;
+  }
 }
 </style>
+
+<script setup>
+import TheFooter from './components/TheFooter.vue'
+import SearchPanel from './components/SearchPanel.vue'
+import WeatherCard from './components/WeatherCard.vue'
+</script>
+
