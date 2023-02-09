@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import './style.scss'
 import 'normalize.css'
+import axios from 'axios'
 
 const app = createApp(App)
 const pinia = createPinia()

@@ -1,11 +1,9 @@
 <template>
   <div class="search-panel" id="search-panel">
     <label for="city">城市:</label>
-    <select name="city" id="city">
+    <select name="city" id="city" v-model="selectedCity" @change="selectTheCity">
       <option value="請選擇">請選擇</option>
-      <option value="臺南市">臺南市</option>
-      <option value="臺中市">臺中市</option>
-      <option value="臺北市">臺北市</option>
+      <option v-for="city in cityList" :key="city">{{ city }}</option>
     </select>
   </div>
 </template>
@@ -42,3 +40,20 @@
   }
 }
 </style>
+
+<script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import { useWeatherDataStore } from '../stores/WeatherDataStore'
+import { ref } from 'vue'
+
+const weatherDataStore = useWeatherDataStore()
+const { cityList } = storeToRefs(weatherDataStore)
+console.log(cityList)
+
+const selectedCity = ref('請選擇')
+const emits = defineEmits(['sendSelectedCity'])
+const selectTheCity = () => {
+  emits('sendSelectedCity', selectedCity.value)
+  console.log('selectedCity', selectedCity.value)
+}
+</script>

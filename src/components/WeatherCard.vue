@@ -1,63 +1,14 @@
 <template>
   <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
-  </div>
-  <div class="weather-card" id="weather-card">
-    <span class="city-name">臺南市</span>
-    <span class="weather-status">多雲時晴</span>
-    <span class="temperature">25 &#8451;</span>
-    <span class="humidity">50 %</span>
+    <span class="city-name">縣市: {{ cityWeatherInfo.locationName }}</span>
+    <span class="weather-status">天氣: {{ cityWeatherInfo.weatherElement[0].time[0].parameter.parameterName }}</span>
+    <span class="temperature">氣溫:
+      {{ cityWeatherInfo.weatherElement[2].time[0].parameter.parameterName }} &#8451;
+      -
+      {{ cityWeatherInfo.weatherElement[4].time[0].parameter.parameterName }} &#8451;
+    </span>
+    <span class="raining-possibility">降雨機率: {{ cityWeatherInfo.weatherElement[1].time[0].parameter.parameterName }}
+      %</span>
   </div>
 </template>
 
@@ -92,3 +43,14 @@
   }
 }
 </style>
+
+<script lang="ts" setup>
+
+const props = defineProps({
+  cityWeatherInfo: {
+    type: Object,
+    required: true
+  }
+})
+
+</script>
