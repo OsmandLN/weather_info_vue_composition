@@ -11,14 +11,13 @@
 <style lang="scss" scoped>
 #search-panel {
   width: 80%;
-  position: relative;
-  top: 120px;
   border-radius: 5px;
-  margin: 0 auto;
+  margin: 20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba($color: antiquewhite, $alpha: 0.7);
+  background-color: rgba($color: lightblue, $alpha: 0.6);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
   label,
   select {
@@ -41,7 +40,7 @@
 }
 </style>
 
-<script lang="ts" setup>
+<script setup>
 import { storeToRefs } from 'pinia'
 import { useWeatherDataStore } from '../stores/WeatherDataStore'
 import { ref } from 'vue'

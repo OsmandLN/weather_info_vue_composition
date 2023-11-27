@@ -2,13 +2,15 @@
   <header>
     <div class="logos-wrapper">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+      <!-- <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" /> -->
     </div>
     <span>縣市天氣查詢</span>
   </header>
-  <SearchPanel @sendSelectedCity="getSelectedCityFromSelect" />
-  <div class="card-wrapper">
-    <WeatherCard v-for="info in filteredCityInfo" :key="info" :city-weather-info="info" />
+  <div class="contain-wrapper">
+    <SearchPanel @sendSelectedCity="getSelectedCityFromSelect" />
+    <div class="card-wrapper">
+      <WeatherCard v-for="info in filteredCityInfo" :key="info" :city-weather-info="info" />
+    </div>
   </div>
   <TheFooter />
 </template>
@@ -20,14 +22,16 @@ header {
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
-  background-color: rgba($color: coral, $alpha: 0.5);
+  background-color: rgba($color: lightblue, $alpha: 0.6);
   z-index: 999;
 
   span {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-align: center;
     font-size: 36px;
+    font-weight: 700;
   }
 
   .logos-wrapper {
@@ -47,15 +51,19 @@ header {
   }
 }
 
-.card-wrapper {
-  width: 100%;
-  position: relative;
-  top: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 5em;
-  margin: 25px 0;
+.contain-wrapper {
+  padding-top: 100px;
+  padding-bottom: 23px;
+
+  .card-wrapper {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-image: url('./assets/weather_blue.png');
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -65,7 +73,7 @@ header {
 }
 </style>
 
-<script lang="ts" setup>
+<script setup>
 import TheFooter from './components/TheFooter.vue'
 import SearchPanel from './components/SearchPanel.vue'
 import WeatherCard from './components/WeatherCard.vue'

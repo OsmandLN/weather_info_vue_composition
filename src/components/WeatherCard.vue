@@ -17,12 +17,13 @@
   width: 90%;
   height: 150px;
   border-radius: 5px;
-  background-color: rgba($color: antiquewhite, $alpha: 0.8);
+  background-color: rgba($color: lightgrey, $alpha: 0.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 10px 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
   span {
     margin: 5px
@@ -44,7 +45,7 @@
 }
 </style>
 
-<script lang="ts" setup>
+<script setup>
 
 const props = defineProps({
   cityWeatherInfo: {
