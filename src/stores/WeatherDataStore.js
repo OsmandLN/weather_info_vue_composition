@@ -14,7 +14,7 @@ export const useWeatherDataStore = defineStore('WeatherDataStore', {
   actions: {
 
     fetchWeatherData() {
-      const base_URL = 'opendata.cwb.gov.tw/api'
+      const base_URL = 'opendata.cwa.gov.tw/api'
       const authorizationCode = 'CWB-61431FA0-9546-4DA7-A3FF-68D879357C6A'
 
       axios.get(`https://${base_URL}/v1/rest/datastore/F-C0032-001?Authorization=${authorizationCode}`)
